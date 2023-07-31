@@ -1,0 +1,75 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/OsbWood.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.08115007020276001 0.016133355391194655 -0.9965713125260572 2.7504042956304913
+  position 2.3940536063958726 1.0668928515056937 0.5985224684589471
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+Robot {
+  translation 9.656292075107091e-08 0.00624107379397295 0.15658967754378814
+  rotation -0.19560411139776285 0.19561200938332468 0.960976052453603 1.6105902210608767
+  children [
+    Transform {
+      translation 0 0 0.0415
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 1
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.08
+            radius 0.045
+          }
+        }
+      ]
+    }
+    Accelerometer {
+    }
+  ]
+  contactMaterial "body"
+  boundingObject Transform {
+    translation 0 0 0.0415
+    rotation 0 0 1 -1.57
+    children [
+      Cylinder {
+        height 0.08
+        radius 0.045
+      }
+    ]
+  }
+  physics Physics {
+    mass 0.5
+  }
+}
+Solid {
+  translation 0 0 0.15
+  rotation 1 0 0 -1.97
+  children [
+    Shape {
+      appearance OsbWood {
+        textureTransform TextureTransform {
+          scale 0.5 2
+        }
+      }
+      geometry DEF box0 Box {
+        size 0.2 0.02 0.8
+      }
+    }
+  ]
+  name "ramp"
+  boundingObject USE box0
+}
